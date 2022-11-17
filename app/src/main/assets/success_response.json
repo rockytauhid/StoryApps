@@ -1,0 +1,96 @@
+{
+  "error": false,
+  "message": "Stories fetched successfully",
+  "listStory": [
+    {
+      "id": "story-ZTy8JG-Bh7QTq04o",
+      "name": "heri",
+      "description": "jcjfhdhityy",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668681661661_aaBx3aFA.jpg",
+      "createdAt": "2022-11-17T10:41:01.664Z",
+      "lat": -6.339517,
+      "lon": 106.6398564
+    },
+    {
+      "id": "story-fixJPrLPWqxT8VTb",
+      "name": "odelia",
+      "description": "Response",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668679942066_EShwJ7JC.jpg",
+      "createdAt": "2022-11-17T10:12:22.067Z",
+      "lat": -6.265145,
+      "lon": 106.8862933
+    },
+    {
+      "id": "story-xHAA7gPF6HpYNn47",
+      "name": "Connor",
+      "description": "Deskripsi gambar",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668678672345_d3ULffqF.jpg",
+      "createdAt": "2022-11-17T09:51:12.346Z",
+      "lat": 14.1110123,
+      "lon": 24321.4124
+    },
+    {
+      "id": "story-055xE0HL08DpuTdj",
+      "name": "dias",
+      "description": " test",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668678142117_fC0mkprS.jpg",
+      "createdAt": "2022-11-17T09:42:22.119Z",
+      "lat": -6.3395215,
+      "lon": 106.6399448
+    },
+    {
+      "id": "story-12EM9_iV9SWXbezG",
+      "name": "Edhitia",
+      "description": "wkwkkwwaw",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668678053301_393_yXp7.jpg",
+      "createdAt": "2022-11-17T09:40:53.303Z",
+      "lat": 37.4220936,
+      "lon": -122.083922
+    },
+    {
+      "id": "story-dufqZ4MUvAEd3tUY",
+      "name": "Arif",
+      "description": "da",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668678008005_qk9eC6VP.jpg",
+      "createdAt": "2022-11-17T09:40:08.006Z",
+      "lat": 37.4220936,
+      "lon": -122.083922
+    },
+    {
+      "id": "story-PqodH1sU7sbLS7b2",
+      "name": "heri",
+      "description": "test lagi",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668677415336_W2ztoH-0.jpg",
+      "createdAt": "2022-11-17T09:30:15.338Z",
+      "lat": -6.3392371,
+      "lon": 106.6397621
+    },
+    {
+      "id": "story-8c_1FsP5IS9ODZBk",
+      "name": "heri",
+      "description": "lagi",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668676369973_xbvgnS1s.jpg",
+      "createdAt": "2022-11-17T09:12:49.974Z",
+      "lat": -6.339465,
+      "lon": 106.6398983
+    },
+    {
+      "id": "story-JdFrIm9b98ip8tw6",
+      "name": "Akmal Rafi",
+      "description": "Ini deskripsi saya",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668676279258_8UeA-c4y.png",
+      "createdAt": "2022-11-17T09:11:19.260Z",
+      "lat": 23.13213,
+      "lon": 44.13123232
+    },
+    {
+      "id": "story-1HyO6486SAdDOOAa",
+      "name": "heri",
+      "description": "test\n",
+      "photoUrl": "https://story-api.dicoding.dev/images/stories/photos-1668676036094_-lRH6qD2.jpg",
+      "createdAt": "2022-11-17T09:07:16.095Z",
+      "lat": -6.3405332,
+      "lon": 106.6388934
+    }
+  ]
+}

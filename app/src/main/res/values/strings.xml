@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name" translatable="false">Story Apps</string>
+    <string name="signup">Sign up</string>
+    <string name="login">Login</string>
+    <string name="message_welcome_page">We have tons of stories ready for you to read!</string>
+    <string name="title_welcome_page">Welcome to Story Apps!</string>
+    <string name="title_signup_page">Please fill in your details</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="message_login_page">Please enter your login details</string>
+    <string name="title_login_page">Are you ready to read some stories?</string>
+    <string name="copyright" translatable="false">© 2022 rockytauhid</string>
+    <string name="greeting" translatable="false">Hi %1$s,</string>
+    <string name="logout">Logout</string>
+    <string name="invalid_password">Password need to have at least 6 characters</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
+    <string name="language">Language</string>
+    <string name="uploaderName">Uploaded by</string>
+    <string name="createdAt">Created At</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="image">Image</string>
+    <string name="camera_x" translatable="false">CameraX</string>
+    <string name="gallery">Gallery</string>
+    <string name="add_story">Add Story</string>
+    <string name="not_permitted">Permission is not granted</string>
+    <string name="failed_taking_photo">Failed to take photo</string>
+    <string name="failed_show_camera">Failed to show camera</string>
+    <string name="choose_picture">Choose a picture</string>
+    <string name="name">Name</string>
+    <string name="invalid_email">Not a valid email address</string>
+    <string name="sample_date" translatable="false">08-10-1984</string>
+    <string name="story_photo">story photo</string>
+    <string name="login_image">login image</string>
+    <string name="switch_camera">switch camera</string>
+    <string name="capture_image">capture image</string>
+    <string name="signup_image">signup image</string>
+    <string name="welcome_image">welcome image</string>
+    <string name="map">Map</string>
+    <string name="location_not_found">Location is not found</string>
+    <string name="location">Location</string>
+    <string name="use_current_location">Use current location</string>
+    <string name="home">Home</string>
+    <string name="retry">Retry</string>
+</resources>

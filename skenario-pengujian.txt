@@ -1,0 +1,31 @@
+MainActivityTest
+- RecycleView is displayed
+- Textview name value is displayed
+- RecycleView is Scrollable and clickable
+- Successfully opened DetailStoryActivity
+
+StoryRepositoryTest
+- when add Story Should Not Null and Return Success
+- when get Stories Should Not Null and Return ListStoryItem
+
+UserRepositoryTest
+- when register Should Not Null and Return Success
+- when login Should Not Null and Return Login Response
+
+MainViewModelTest
+- when Get Stories Should Not Null and Return Success
+
+SignupViewModelTest
+- when signUp Should Not Null and Return Success
+- when signUp Error and Return Error
+
+LoginViewModelTest
+- when login Should Not Null and Return Success
+- when login Error and Return Error
+
+NewStoryViewModelTest
+- when add New Story Should Not Null and Return Success
+
+MapsViewModelTest
+- when get Stories With Location Should Not Null and Return Success
+- when get Stories With Location Error and Return Error

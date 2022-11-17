@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Kami punya banyak cerita untuk kamu baca!</string>
+    <string name="title_welcome_page">Selamat datang di Story Apps!</string>
+    <string name="title_signup_page">Silahkan dengkapi dengan datamu</string>
+    <string name="message_login_page">Silahkan masukkan data login kamu</string>
+    <string name="title_login_page">Apakah kamu siap membaca cerita?</string>
+    <string name="logout">Keluar</string>
+    <string name="invalid_password">Password harus memiliki setidaknya 6 karakter</string>
+    <string name="description">Deskripsi</string>
+    <string name="add">Tambah</string>
+    <string name="language">Bahasa</string>
+    <string name="uploaderName">Di tambah oleh</string>
+    <string name="createdAt">Di buat pada</string>
+    <string name="enter_password">Masukkan password</string>
+    <string name="enter_email">Masukkan email</string>
+    <string name="enter_name">Masukkan nama</string>
+    <string name="image">Gambar</string>
+    <string name="gallery">Galeri</string>
+    <string name="add_story">Tambah cerita</string>
+    <string name="not_permitted">Izin tidak didapatkan</string>
+    <string name="failed_taking_photo">Gagal mengambil gambar</string>
+    <string name="failed_show_camera">Gagal membuka kamera</string>
+    <string name="choose_picture">Pilih sebuah gambar</string>
+    <string name="name">Nama</string>
+    <string name="invalid_email">Alamat email tidak valid</string>
+    <string name="story_photo">gambar cerita</string>
+    <string name="login_image">gambar login</string>
+    <string name="switch_camera">ganti kamera</string>
+    <string name="capture_image">ambil gambar</string>
+    <string name="signup_image">gambar daftar</string>
+    <string name="welcome_image">gambar selamat datang</string>
+    <string name="map">Peta</string>
+    <string name="location_not_found">Lokasi tidak ditemukan</string>
+    <string name="location">Lokasi</string>
+    <string name="use_current_location">Gunakan lokasi saat ini</string>
+    <string name="home">Menu utama</string>
+    <string name="retry">Coba lagi</string>
+</resources>
