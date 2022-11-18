@@ -58,23 +58,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.option_menu, menu)
-        menu.findItem(R.id.map).isVisible = false
+        menu.findItem(R.id.action_map).isVisible = false
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.home -> {
+            R.id.action_home -> {
                 val i = Intent(this, MainActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.add -> {
+            R.id.action_add -> {
                 val i = Intent(this, NewStoryActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.language -> {
+            R.id.action_language -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
                 return true
             }
@@ -97,7 +97,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.fragment_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         setupView()

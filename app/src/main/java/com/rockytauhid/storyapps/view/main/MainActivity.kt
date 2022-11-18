@@ -41,23 +41,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.option_menu, menu)
-        menu.findItem(R.id.home).isVisible = false
+        menu.findItem(R.id.action_home).isVisible = false
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.map -> {
+            R.id.action_map -> {
                 val i = Intent(this, MapsActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.add -> {
+            R.id.action_add -> {
                 val i = Intent(this, NewStoryActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.language -> {
+            R.id.action_language -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
                 return true
             }

@@ -42,22 +42,22 @@ class DetailStoryActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.home -> {
+            R.id.action_home -> {
                 val i = Intent(this, MainActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.map -> {
+            R.id.action_map -> {
                 val i = Intent(this, MapsActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.add -> {
+            R.id.action_add -> {
                 val i = Intent(this, NewStoryActivity::class.java)
                 startActivity(i)
                 return true
             }
-            R.id.language -> {
+            R.id.action_language -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
                 return true
             }
