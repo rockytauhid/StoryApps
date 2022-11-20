@@ -9,15 +9,23 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.rockytauhid.storyapps.R
 import com.rockytauhid.storyapps.databinding.ActivityWelcomeBinding
+import com.rockytauhid.storyapps.model.ViewModelFactory
 import com.rockytauhid.storyapps.view.login.LoginActivity
+import com.rockytauhid.storyapps.view.login.LoginViewModel
+import com.rockytauhid.storyapps.view.main.MainActivity
 import com.rockytauhid.storyapps.view.signup.SignupActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
+
+    private val loginViewModel: LoginViewModel by viewModels {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +33,7 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupView()
+        setupViewModel()
         setupAction()
         playAnimation()
     }
@@ -40,6 +49,15 @@ class WelcomeActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    private fun setupViewModel() {
+        loginViewModel.getToken().observe(this) { token ->
+            if (token.isNotEmpty()) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        }
     }
 
     private fun setupAction() {

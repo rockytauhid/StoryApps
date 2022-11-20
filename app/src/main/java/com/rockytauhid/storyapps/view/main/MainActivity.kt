@@ -2,11 +2,11 @@ package com.rockytauhid.storyapps.view.main
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rockytauhid.storyapps.R
 import com.rockytauhid.storyapps.adapter.LoadingStateAdapter
@@ -71,11 +71,6 @@ class MainActivity : AppCompatActivity() {
             else -> return true
         }
     }
-
-/*    override fun onResume() {
-        super.onResume()
-        setupViewModel()
-    }*/
 
     private fun setupView() {
         @Suppress("DEPRECATION")

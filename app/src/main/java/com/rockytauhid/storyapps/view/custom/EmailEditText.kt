@@ -30,8 +30,23 @@ class EmailEditText : TextInputEditText, View.OnFocusChangeListener {
     }
 
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
-        if (!hasFocus && !text.isNullOrEmpty() && !emailRegex.matches(text.toString()))
-            error = context.getString(R.string.invalid_email)
+        if (!hasFocus)
+            isValid()
+    }
+
+    fun isValid(): Boolean {
+        error = when {
+            text.isNullOrEmpty() -> {
+                resources.getString(R.string.enter_email)
+            }
+            !emailRegex.matches(text.toString()) -> {
+                resources.getString(R.string.invalid_email)
+            }
+            else -> {
+                ""
+            }
+        }
+        return error.isEmpty()
     }
 
     private fun init() {

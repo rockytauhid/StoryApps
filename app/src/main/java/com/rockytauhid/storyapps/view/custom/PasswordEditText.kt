@@ -30,8 +30,23 @@ class PasswordEditText : TextInputEditText, View.OnFocusChangeListener {
     }
 
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
-        if (!hasFocus && !text.isNullOrEmpty() && (text?.length ?: 0) < MIN_LENGTH)
-            error = resources.getString(R.string.invalid_password)
+        if (!hasFocus)
+            isValid()
+    }
+
+    fun isValid(): Boolean {
+        error = when {
+            text.isNullOrEmpty() -> {
+                resources.getString(R.string.enter_password)
+            }
+            (text?.length ?: 0) < MIN_LENGTH -> {
+                resources.getString(R.string.invalid_password)
+            }
+            else -> {
+                ""
+            }
+        }
+        return error.isEmpty()
     }
 
     private fun init() {

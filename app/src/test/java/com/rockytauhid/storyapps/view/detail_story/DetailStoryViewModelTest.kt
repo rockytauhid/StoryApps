@@ -39,7 +39,7 @@ class DetailStoryViewModelTest {
     }
 
     @Test
-    fun `when Detail Should Not Null and Return Success`() = runTest {
+    fun `when get Story Should Not Null and Return Success`() = runTest {
         val expectedResponse = MutableLiveData<Result<StoryResponse>>()
         expectedResponse.value = Result.Success(dummyStory)
         `when`(mockStoryRepository.getStory(dummyToken, dummyStoryId)).thenReturn(expectedResponse)
@@ -52,7 +52,7 @@ class DetailStoryViewModelTest {
     }
 
     @Test
-    fun `when Detail Story Error and Return Error`() = runTest {
+    fun `when get Story Error and Return Error`() = runTest {
         val expectedResponse = MutableLiveData<Result<StoryResponse>>()
         expectedResponse.value = Result.Error("Error")
         `when`(mockStoryRepository.getStory(dummyToken, dummyStoryId)).thenReturn(expectedResponse)

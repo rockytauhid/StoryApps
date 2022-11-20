@@ -45,13 +45,13 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `when Get Stories Should Not Null and Return Success`() = runTest {
+    fun `when get Stories Should Not Null and Return Success`() = runTest {
         val data: PagingData<StoryModel> = StoryPagingSource.snapshot(dummyStories)
-        val expectedStories = MutableLiveData<PagingData<StoryModel>>()
-        expectedStories.value = data
-        `when`(mockStoryRepository.getStories(dummyToken)).thenReturn(expectedStories)
+        val expectedResponse = MutableLiveData<PagingData<StoryModel>>()
+        expectedResponse.value = data
+        `when`(mockStoryRepository.getStories(dummyToken)).thenReturn(expectedResponse)
 
-        val actualStories: PagingData<StoryModel> =
+        val actualResponse: PagingData<StoryModel> =
             mainViewModel.getStories(dummyToken).getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
@@ -59,7 +59,7 @@ class MainViewModelTest {
             updateCallback = noopListUpdateCallback,
             workerDispatcher = Dispatchers.Main,
         )
-        differ.submitData(actualStories)
+        differ.submitData(actualResponse)
 
         Assert.assertNotNull(differ.snapshot())
         Assert.assertEquals(dummyStories, differ.snapshot())

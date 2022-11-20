@@ -71,12 +71,14 @@ class LoginActivity : AppCompatActivity() {
         binding.submitLoginButton.setOnClickListener {
             val email = binding.edLoginEmail.text.toString()
             val password = binding.edLoginPassword.text.toString()
+            binding.emailEditTextLayout.error = ""
+            binding.passwordEditTextLayout.error = ""
             when {
-                email.isEmpty() -> {
-                    binding.emailEditTextLayout.error = getString(R.string.enter_email)
+                !binding.edLoginEmail.isValid() -> {
+                    binding.emailEditTextLayout.error = binding.edLoginEmail.error
                 }
-                password.isEmpty() -> {
-                    binding.passwordEditTextLayout.error = getString(R.string.enter_password)
+                !binding.edLoginPassword.isValid() -> {
+                    binding.passwordEditTextLayout.error = binding.edLoginPassword.error
                 }
                 else -> {
                     runGif()

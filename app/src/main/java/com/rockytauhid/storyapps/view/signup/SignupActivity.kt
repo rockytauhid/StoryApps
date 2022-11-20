@@ -52,15 +52,18 @@ class SignupActivity : AppCompatActivity() {
             val name = binding.edRegisterName.text.toString()
             val email = binding.edRegisterEmail.text.toString()
             val password = binding.edRegisterPassword.text.toString()
+            binding.nameEditTextLayout.error = ""
+            binding.emailEditTextLayout.error = ""
+            binding.passwordEditTextLayout.error = ""
             when {
                 name.isEmpty() -> {
                     binding.nameEditTextLayout.error = getString(R.string.enter_name)
                 }
-                email.isEmpty() -> {
-                    binding.emailEditTextLayout.error = getString(R.string.enter_email)
+                !binding.edRegisterEmail.isValid() -> {
+                    binding.emailEditTextLayout.error = binding.edRegisterEmail.error
                 }
-                password.isEmpty() -> {
-                    binding.passwordEditTextLayout.error = getString(R.string.enter_password)
+                !binding.edRegisterPassword.isValid() -> {
+                    binding.passwordEditTextLayout.error = binding.edRegisterPassword.error
                 }
                 else -> {
                     register(name, email, password)

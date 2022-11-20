@@ -43,10 +43,10 @@ class SignupViewModelTest {
     }
 
     @Test
-    fun `when signUp Should Not Null and Return Success`() = runTest {
+    fun `when register Should Not Null and Return Success`() = runTest {
         val expectedResponse = MutableLiveData<Result<GeneralResponse>>()
         expectedResponse.value = Result.Success(dummyGeneralResponse)
-        `when`(signupViewModel.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
+        `when`(mockUserRepository.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
             expectedResponse
         )
         val actualResponse =
@@ -58,10 +58,10 @@ class SignupViewModelTest {
     }
 
     @Test
-    fun `when signUp Error and Return Error`() = runTest {
+    fun `when register Error and Return Error`() = runTest {
         val expectedResponse = MutableLiveData<Result<GeneralResponse>>()
         expectedResponse.value = Result.Error("Error")
-        `when`(signupViewModel.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
+        `when`(mockUserRepository.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
             expectedResponse
         )
         val actualResponse =
