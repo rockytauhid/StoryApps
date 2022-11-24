@@ -2,6 +2,7 @@ package com.rockytauhid.storyapps.view.new_story
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import com.rockytauhid.storyapps.data.remote.GeneralResponse
 import com.rockytauhid.storyapps.data.repository.StoryRepository
 import com.rockytauhid.storyapps.data.repository.UserRepository
@@ -10,6 +11,7 @@ import com.rockytauhid.storyapps.model.Result
 import com.rockytauhid.storyapps.utils.MainDispatcherRule
 import com.rockytauhid.storyapps.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.*
 import org.junit.runner.RunWith
@@ -42,7 +44,18 @@ class NewStoryViewModelTest {
     }
 
     @Test
-    fun `when add New Story Should Not Null and Return Success`() = runTest {
+    fun `when get Token Should Not Null and Return String`() {
+        val expectedResponse = flowOf(dummyToken)
+        `when`(mockUserRepository.getToken()).thenReturn(expectedResponse)
+        val actualResponse = newStoryViewModel.getToken().getOrAwaitValue()
+
+        Mockito.verify(mockUserRepository).getToken()
+        Assert.assertNotNull(actualResponse)
+        Assert.assertEquals(expectedResponse.asLiveData().getOrAwaitValue(), actualResponse)
+    }
+
+    @Test
+    fun `when add New Story Should Not Null and Return Success`() {
         val expectedResult = MutableLiveData<Result<GeneralResponse>>()
         expectedResult.value = Result.Success(dummySuccessGeneralResponse)
         `when`(
@@ -64,5 +77,11 @@ class NewStoryViewModelTest {
             .addStory(dummyToken, dummyPhoto, dummyDesc, dummyLat, dummyLon)
         Assert.assertTrue(actualResponse is Result.Success)
         Assert.assertNotNull(actualResponse)
+    }
+
+    @Test
+    fun `set logout Successfully`() = runTest {
+        newStoryViewModel.logout()
+        Mockito.verify(mockUserRepository).deleteUser()
     }
 }

@@ -2,6 +2,7 @@ package com.rockytauhid.storyapps.view.map
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import com.rockytauhid.storyapps.data.remote.StoriesResponse
 import com.rockytauhid.storyapps.data.repository.StoryRepository
 import com.rockytauhid.storyapps.data.repository.UserRepository
@@ -10,6 +11,7 @@ import com.rockytauhid.storyapps.utils.DataDummy
 import com.rockytauhid.storyapps.utils.MainDispatcherRule
 import com.rockytauhid.storyapps.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.*
 import org.junit.runner.RunWith
@@ -38,7 +40,18 @@ class MapsViewModelTest {
     }
 
     @Test
-    fun `when get Stories With Location Should Not Null and Return Success`() = runTest {
+    fun `when get Token Should Not Null and Return String`() {
+        val expectedResponse = flowOf(dummyToken)
+        `when`(mockUserRepository.getToken()).thenReturn(expectedResponse)
+        val actualResponse = mapsViewModel.getToken().getOrAwaitValue()
+
+        Mockito.verify(mockUserRepository).getToken()
+        Assert.assertNotNull(actualResponse)
+        Assert.assertEquals(expectedResponse.asLiveData().getOrAwaitValue(), actualResponse)
+    }
+
+    @Test
+    fun `when get Stories With Location Should Not Null and Return Success`() {
         val expectedResponse = MutableLiveData<Result<StoriesResponse>>()
         expectedResponse.value = Result.Success(dummyStories)
         `when`(mockStoryRepository.getStoriesWithLocation(dummyToken)).thenReturn(expectedResponse)
@@ -54,7 +67,7 @@ class MapsViewModelTest {
     }
 
     @Test
-    fun `when get Stories With Location Error and Return Error`() = runTest {
+    fun `when get Stories With Location Error and Return Error`() {
         val expectedResponse = MutableLiveData<Result<StoriesResponse>>()
         expectedResponse.value = Result.Error("Error")
         `when`(mockStoryRepository.getStoriesWithLocation(dummyToken)).thenReturn(expectedResponse)
@@ -63,5 +76,11 @@ class MapsViewModelTest {
         Mockito.verify(mockStoryRepository).getStoriesWithLocation(dummyToken)
         Assert.assertTrue(actualResponse is Result.Error)
         Assert.assertNotNull(actualResponse)
+    }
+
+    @Test
+    fun `set logout Successfully`() = runTest {
+        mapsViewModel.logout()
+        Mockito.verify(mockUserRepository).deleteUser()
     }
 }

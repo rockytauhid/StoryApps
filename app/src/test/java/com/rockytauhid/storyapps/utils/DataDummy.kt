@@ -29,12 +29,16 @@ object DataDummy {
         return dummyPassword
     }
 
-    fun generateDummySuccessLoginResponse(): LoginResponse {
-        val loginResult = LoginResult(
+    fun generateDummyLoginResult(): LoginResult {
+        return LoginResult(
             dummyName,
             dummyUserId,
             dummyToken
         )
+    }
+
+    fun generateDummySuccessLoginResponse(): LoginResponse {
+        val loginResult = generateDummyLoginResult()
         return LoginResponse(loginResult, false, "success")
     }
 

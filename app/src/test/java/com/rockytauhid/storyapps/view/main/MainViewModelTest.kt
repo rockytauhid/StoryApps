@@ -3,6 +3,7 @@ package com.rockytauhid.storyapps.view.main
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.paging.AsyncPagingDataDiffer
 import androidx.paging.PagingData
 import androidx.paging.PagingSource
@@ -17,6 +18,7 @@ import com.rockytauhid.storyapps.utils.MainDispatcherRule
 import com.rockytauhid.storyapps.utils.getOrAwaitValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.*
 import org.junit.runner.RunWith
@@ -34,14 +36,25 @@ class MainViewModelTest {
     var mainDispatcherRule = MainDispatcherRule()
 
     private lateinit var mainViewModel: MainViewModel
-    private val dummyToken = DataDummy.generateDummyToken()
-    private val dummyStories = DataDummy.generateDummyListStoryModel()
     private val mockUserRepository: UserRepository = Mockito.mock(UserRepository::class.java)
     private val mockStoryRepository: StoryRepository = Mockito.mock(StoryRepository::class.java)
+    private val dummyToken = DataDummy.generateDummyToken()
+    private val dummyStories = DataDummy.generateDummyListStoryModel()
 
     @Before
     fun setUp() {
         mainViewModel = MainViewModel(mockUserRepository, mockStoryRepository)
+    }
+
+    @Test
+    fun `when get Token Should Not Null and Return String`() {
+        val expectedResponse = flowOf(dummyToken)
+        `when`(mockUserRepository.getToken()).thenReturn(expectedResponse)
+        val actualResponse = mainViewModel.getToken().getOrAwaitValue()
+
+        Mockito.verify(mockUserRepository).getToken()
+        Assert.assertNotNull(actualResponse)
+        Assert.assertEquals(expectedResponse.asLiveData().getOrAwaitValue(), actualResponse)
     }
 
     @Test
@@ -65,6 +78,12 @@ class MainViewModelTest {
         Assert.assertEquals(dummyStories, differ.snapshot())
         Assert.assertEquals(dummyStories.size, differ.snapshot().size)
         Assert.assertEquals(dummyStories[0].id, differ.snapshot()[0]?.id)
+    }
+
+    @Test
+    fun `set logout Successfully`() = runTest {
+        mainViewModel.logout()
+        Mockito.verify(mockUserRepository).deleteUser()
     }
 }
 

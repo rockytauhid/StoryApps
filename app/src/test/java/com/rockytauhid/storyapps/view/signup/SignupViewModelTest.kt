@@ -9,7 +9,6 @@ import com.rockytauhid.storyapps.model.Result
 import com.rockytauhid.storyapps.utils.MainDispatcherRule
 import com.rockytauhid.storyapps.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
@@ -28,6 +27,7 @@ class SignupViewModelTest {
 
     @get:Rule
     var mainDispatcherRule = MainDispatcherRule()
+
     private lateinit var signupViewModel: SignupViewModel
     private val dummyName = DataDummy.generateDummyName()
     private val dummyEmail = DataDummy.generateDummyEmail()
@@ -43,7 +43,7 @@ class SignupViewModelTest {
     }
 
     @Test
-    fun `when register Should Not Null and Return Success`() = runTest {
+    fun `when register Should Not Null and Return Success`() {
         val expectedResponse = MutableLiveData<Result<GeneralResponse>>()
         expectedResponse.value = Result.Success(dummyGeneralResponse)
         `when`(mockUserRepository.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
@@ -58,7 +58,7 @@ class SignupViewModelTest {
     }
 
     @Test
-    fun `when register Error and Return Error`() = runTest {
+    fun `when register Error and Return Error`() {
         val expectedResponse = MutableLiveData<Result<GeneralResponse>>()
         expectedResponse.value = Result.Error("Error")
         `when`(mockUserRepository.register(dummyName, dummyEmail, dummyPassword)).thenReturn(
